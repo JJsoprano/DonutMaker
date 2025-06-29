@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Me - Portfolio</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom font for better aesthetics */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f0f4f8; /* Light gray background */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+    <section
+      class="contact bg-white p-8 rounded-xl shadow-lg w-full max-w-md mx-auto"
+    >
+      <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+        Contact Me
+      </h2>
+
+      <!-- The form doesn't need action/method attributes as JavaScript will handle submission -->
+      <form id="contact-form" class="space-y-4">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your Message"
+          required
+          rows="6"
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-y"
+        ></textarea>
+        <button
+          type="button"
+          id="sendEmailBtn"
+          class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75"
+        >
+          Send
+        </button>
+        <!-- Message area for user feedback (success/error) -->
+        <div id="statusMessage" class="mt-4 text-center text-sm"></div>
+      </form>
+
+      <p class="text-center text-gray-600 mt-8 mb-4">Connect with me:</p>
+      <div class="flex justify-center space-x-4">
+        <!-- NEW: Email Me link -->
+        <a
+          href="mailto:joshuajohnston22@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Fred,"
+          class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
+          >Contact me</a
+        >
+        <span>|</span>
+        <a
+          href="https://github.com/JJsoprano"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
+          >GitHub</a
+        >
+        <span>|</span>
+        <a
+          href="https://www.linkedin.com/in/joshua-johnston-1783991b6"
+          target="_blank"
+          class="text-blue-600 hover:text-blue-800 transition duration-300 ease-in-out"
+          >LinkedIn</a
+        >
+      </div>
+    </section>
+
+    <!--
+        IMPORTANT: EmailJS SDK must be loaded BEFORE your custom script that uses it.
+        This provides the 'emailjs' global object.
+        Updated to use the latest version from cdn.jsdelivr.net for better reliability.
+    -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      // This ensures the script runs only after the DOM is fully loaded and parsed,
+      // including all external scripts like the EmailJS SDK.
+      document.addEventListener("DOMContentLoaded", function () {
+        // IMPORTANT: Initialize EmailJS with your Public Key (User ID)
+        // This connects your client-side code to your EmailJS account.
+        // Replace 'YOUR_EMAILJS_PUBLIC_KEY' with your actual Public Key from EmailJS.
+        emailjs.init("nAEjlYO7EZMo2xoai"); // Your EmailJS Public Key
+
+        // Get references to DOM elements
+        const sendEmailBtn = document.getElementById("sendEmailBtn");
+        const contactForm = document.getElementById("contact-form");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+        const statusMessage = document.getElementById("statusMessage");
+
+        // Add a click event listener to the Send button
+        sendEmailBtn.addEventListener("click", function (event) {
+          // Prevent the default form submission behavior (which would normally refresh the page)
+          event.preventDefault();
+
+          // Get current values from the form inputs, removing leading/trailing whitespace
+          const name = nameInput.value.trim();
+          const email = emailInput.value.trim();
+          const message = messageInput.value.trim();
+
+          // Basic client-side validation: Check if any required field is empty
+          if (!name || !email || !message) {
+            statusMessage.textContent = "Please fill in all fields.";
+            statusMessage.className = "mt-4 text-center text-sm text-red-600"; // Style for error
+            return; // Stop the function if validation fails
+          }
+
+          // Show a loading message to the user
+          statusMessage.textContent = "Sending message...";
+          statusMessage.className = "mt-4 text-center text-sm text-blue-600"; // Style for loading
+          sendEmailBtn.disabled = true; // Disable button to prevent multiple submissions while sending
+
+          // Define the parameters to send to your EmailJS template.
+          // The keys (e.g., 'from_name', 'from_email', 'message_html') must match
+          // the variable names you defined in your EmailJS email template.
+          const templateParams = {
+            from_name: name,
+            from_email: email,
+            message_html: message,
+            // You can also pass the recipient email if your template needs it,
+            // though often the recipient is set directly in the EmailJS template settings.
+            to_email: "joshuajohnston22@gmail.com",
+          };
+
+          // IMPORTANT: Replace with your actual Service ID and Template ID from EmailJS.
+          // These connect your script to the specific email service and template you set up.
+          const serviceID = "service_9ddbc0e"; // e.g., 'service_abcdefg'
+          const templateID = "template_7de2ijk"; // e.g., 'template_123xyz'
+
+          // Use the EmailJS send function to send the email
+          emailjs
+            .send(serviceID, templateID, templateParams)
+            .then(
+              function (response) {
+                // Success callback: Executed if EmailJS successfully processes the request
+                console.log("Email successfully sent!", response);
+                statusMessage.textContent =
+                  "Your message has been sent successfully!";
+                statusMessage.className =
+                  "mt-4 text-center text-sm text-green-600"; // Style for success
+                contactForm.reset(); // Clear the form fields after successful submission
+              },
+              function (error) {
+                // Error callback: Executed if there's an error from EmailJS or network issues
+                statusMessage.textContent =
+                  "Failed to send the message. Please try again later.";
+                statusMessage.className =
+                  "mt-4 text-center text-sm text-red-600"; // Style for error
+                console.error("EmailJS Error:", error); // Log the detailed error for debugging
+              }
+            )
+            .finally(function () {
+              // This block always runs after the promise settles (success or failure)
+              sendEmailBtn.disabled = false; // Re-enable the button
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

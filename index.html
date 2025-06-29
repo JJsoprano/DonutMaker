@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fred the Baker's Donut Maker Clicker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Link your custom style.css file -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">
+            <!-- You can add a logo image here if you have one, e.g., <img src="images/donut-logo.png" alt="Donut Logo" class="logo-img"> -->
+            <a href="index.html">Fred's Donuts</a> <!-- Link back to the game's home -->
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home (Game)</a></li>
+                <!-- This is the link that should say "Contact Me" and point to your contact.html -->
+                <li><a href="contact.html">Contact Me</a></li> 
+                <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">Inspiration</a></li>
+                <!-- Re-added Developer Info link, pointing to the modal -->
+                <li><a href="portfolio.html">Developer Info</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container"> <!-- This acts as your main content wrapper, defined in CSS -->
+        <main class="game-area"> <!-- Added game-area for potential future flex layout within container -->
+            <!-- Donut Clicker Section - Adapting 'hero' style from CSS for a main section -->
+            <section class="hero">
+                <!-- NEW: Left Donut Image -->
+                <img src="https://placehold.co/120x120/FFD700/8B4513?text=Donut" alt="A smaller donut on the left" class="hero-side-donut-img hero-side-donut-left">
+                
+                <div class="hero-content"> <!-- NEW: Wrapper for existing content -->
+                    <h1 class="hero-title">Time to Make the Donuts!</h1>
+                    <p class="hero-text">Click the button below to start your donut empire. The more you click, the more you earn!</p>
+                    
+                    <!-- Existing Main Donut Image -->
+                    <img src="https://placehold.co/200x200/F5DEB3/8B4513?text=Donut" alt="A delicious looking donut" class="hero-donut-img">
+                    
+                    <p class="donut-count-display">Donuts: <span id="donutCountDisplay">0</span></p>
+                    <button id="makeDonutButton" class="btn">Make Donut</button>
+                </div>
+
+                <!-- NEW: Right Donut Image -->
+                <img src="https://placehold.co/120x120/CD853F/FFFFFF?text=Donut" alt="A smaller donut on the right" class="hero-side-donut-img hero-side-donut-right">
+            </section>
+
+            <!-- Auto Clicker Section - Adapting 'project-item' style from CSS for sections -->
+            <section class="project-item">
+                <h2 class="project-item-title">Auto Clickers</h2>
+                <p class="project-item-text">Automate your donut production! Each auto clicker generates donuts for you over time.</p>
+                <p class="auto-clicker-info">Owned: <span id="autoClickerCountDisplay">0</span></p>
+                <p class="auto-clicker-info">Cost of next: <span id="autoClickerCostDisplay">100</span> Donuts</p>
+                <button id="buyAutoClickerButton" class="btn btn-secondary button--disabled">Purchase Auto Clicker</button>
+            </section>
+            
+            <!-- Game Controls Section - Also adapting 'project-item' style -->
+            <section class="project-item">
+                <h2 class="project-item-title">Game Controls</h2>
+                <p class="project-item-text">Need a fresh start? Reset your game progress here.</p>
+                <button id="resetGameButton" class="btn btn-secondary">Reset Game</button>
+            </section>
+        </main>
+    </div>
+<section class="about-us container">
+        <h2 class="about-us-title">About Fred's Bakery</h2>
+        <p class="about-us-text">
+            Fred's Bakery has been serving the freshest, most delicious donuts since 1980. 
+            Our secret recipe, passed down through generations, ensures every bite is a taste of pure joy. 
+            We believe in quality ingredients, traditional baking methods, and a passion for making people smile. 
+            Join us on our journey to make the world a sweeter place, one donut at a time!
+        </p>
+        <p class="about-us-text">
+            This Donut Clicker game is a fun tribute to our dedication, letting you experience 
+            the excitement of building your own donut empire from scratch. Happy clicking!
+        </p>
+    <!-- Re-added: Developer Info Modal -->
+    <div id="developerInfoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeDeveloperInfoModal">&times;</span>
+            <h3 class="modal-title">About the Developer</h3>
+            <p class="modal-text">Hello! I'm your coding partner for this project, designed to help you build and learn.</p>
+            <p class="modal-text">You can connect with me (or learn more about me as an AI) here:</p>
+            <div class="modal-links">
+                <a href="portfolio.html" class="btn btn-small btn-secondary">My Portfolio</a>
+                <a href="https://github.com/JJsoprano" target="_blank" class="btn btn-small btn-secondary">My GitHub</a>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Fred the Baker Baking Company. All rights reserved.</p>
+    </footer>
+
+    <!-- Link your JavaScript files at the end of the body for better performance -->
+    <script src="js/donut.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

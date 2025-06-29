@@ -1,0 +1,516 @@
+/* --- CSS Reset & Base Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define CSS Variables for easy theme changes */
+:root {
+    --primary-color: #4CAF50; /* A brighter green */
+    --secondary-color: #388E3C; /* A darker green */
+    --accent-color: #FFC107; /* Amber/gold accent */
+    --text-color: #212121; /* Darker gray for main text */
+    --light-text-color: #FFFFFF; /* White for text on dark backgrounds */
+    --background-light: #E8F5E9; /* Very light green/mint for overall background */
+    --background-medium: #C8E6C9; /* Slightly darker green for sections like hero */
+    --border-color: #BBDEFB; /* A light blue for borders */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+    --shadow-strong: rgba(0, 0, 0, 0.25);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-light);
+    color: var(--text-color);
+    padding-top: 80px; /* Space for fixed header */
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* --- Utility Classes --- */
+.container {
+    max-width: 900px; /* Consistent content width */
+    margin: 30px auto; /* Added margin to separate from header and add space below */
+    padding: 0 20px;
+}
+
+/* --- Header & Navigation --- */
+.site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--light-text-color);
+    padding: 15px 40px;
+    box-shadow: 0 3px 8px var(--shadow-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-color); /* Apply color to the logo text */
+    font-size: 1.5em; /* Make logo text larger */
+    font-weight: 700;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px var(--shadow-light);
+    transition: transform 0.3s ease;
+    margin-right: 10px; /* Space between logo image and text */
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.1em;
+    padding: 5px 0;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* --- Game Sections - Adapting Hero and Project Item Styles --- */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Space between sections */
+}
+
+/* Styling for the main Donut Clicker section (adapted from .hero) */
+.hero {
+    background-color: var(--background-medium);
+    padding: 40px 20px; /* Adjusted padding for a more compact hero section */
+    text-align: center;
+    color: var(--text-color);
+    display: flex; /* Make hero a flex container */
+    flex-direction: row; /* Arrange items in a row by default */
+    align-items: center;
+    justify-content: center; /* Horizontally center content */
+    border-radius: 12px; /* Consistent rounded corners */
+    box-shadow: 0 5px 15px var(--shadow-light); /* Subtle shadow */
+    gap: 20px; /* Gap between main content and side images */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+}
+
+.hero-content { /* Style for the central content within .hero */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1; /* Allows it to take up available space */
+    max-width: 600px; /* Limit width of central content */
+}
+
+.hero-title { 
+    font-size: 2.5rem; 
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+    text-shadow: 1px 1px 2px var(--shadow-light);
+}
+
+.hero-text { 
+    font-size: 1.15rem; 
+    max-width: 700px; 
+    margin: 0 auto 30px auto;
+    color: var(--text-color);
+}
+
+.hero-donut-img { /* Existing main donut image */
+    width: 150px; 
+    height: 150px; 
+    object-fit: contain;
+    margin: 20px auto; 
+    display: block; 
+    border-radius: 50%; 
+    box-shadow: 0 5px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-donut-img:hover {
+    transform: scale(1.05) rotate(5deg); 
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+/* Styles for the two side donut images */
+.hero-side-donut-img {
+    width: 100px; 
+    height: 100px;
+    object-fit: contain;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; 
+}
+
+.hero-side-donut-img:hover {
+    transform: scale(1.1) rotate(-8deg); 
+    box-shadow: 0 5px 15px var(--shadow-medium);
+}
+
+.donut-count-display { /* Custom class for the donut count */
+    font-size: 3.5rem; 
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+/* Styling for Auto Clicker and Game Controls sections (adapted from .project-item) */
+.project-item {
+    background-color: var(--light-text-color);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    text-align: center; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.project-item-title { 
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.project-item-text { 
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.auto-clicker-info { 
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px var(--shadow-light);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-medium);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    box-shadow: 0 4px 10px var(--shadow-light);
+}
+
+.btn-small { 
+    padding: 8px 18px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+}
+
+/* --- Modals --- */
+.modal {
+    display: none; /* Correct: Hidden by default */
+    position: fixed; 
+    z-index: 9999; /* Critical: ENSURE this is the highest z-index on the page */
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); /* Adjusted: Less opaque black overlay */
+    align-items: center;
+    justify-content: center;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
+.modal.is-visible { 
+    opacity: 1;
+    display: flex; 
+}
+
+.modal-content {
+    background-color: var(--light-text-color); 
+    padding: 40px; 
+    border-radius: 12px; 
+    box-shadow: 0 8px 25px var(--shadow-medium); 
+    position: relative; 
+    width: 90%; 
+    max-width: 550px; 
+    animation: animatetop 0.4s; 
+    text-align: center; 
+    background-color: #FFFFFF; /* Explicitly set to white for clarity */
+    color: var(--text-color); /* Ensure text within modal is readable */
+}
+
+/* Modal Animation (Optional) */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-button {
+    color: var(--text-color);
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-title {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.modal-text {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-align: left; 
+}
+
+.modal-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+
+/* --- Footer --- */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 80px;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    font-size: 0.9em;
+    box-shadow: 0 -2px 8px var(--shadow-light);
+}
+
+/* --- Responsive Design (Media Queries) --- */
+@media (max-width: 768px) {
+    body {
+        padding-top: 65px; 
+    }
+    .site-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+    }
+
+    .logo a {
+        font-size: 1.3em;
+    }
+    .logo-img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+        gap: 10px;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 8px 0;
+        display: block;
+        font-size: 1em;
+    }
+
+    .hero {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        padding: 40px 15px;
+        gap: 15px; /* Reduce gap */
+    }
+    .hero-content {
+        flex-grow: unset; /* Remove flex-grow on small screens */
+    }
+    .hero-title {
+        font-size: 2rem;
+    }
+    .hero-text {
+        font-size: 1em;
+    }
+    .donut-count-display {
+        font-size: 3rem;
+    }
+    .hero-donut-img {
+        width: 120px; /* Adjust main donut size */
+        height: 120px;
+    }
+    .hero-side-donut-img {
+        width: 80px; /* Adjust side donut size */
+        height: 80px;
+    }
+
+
+    .btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+
+    .project-item {
+        padding: 20px;
+    }
+    .project-item-title {
+        font-size: 1.6rem;
+    }
+    .project-item-text {
+        font-size: 0.95em;
+    }
+
+    .modal-content {
+        padding: 30px;
+        width: 95%;
+    }
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    .modal-text {
+        font-size: 1em;
+    }
+    .close-button {
+        font-size: 30px;
+        top: 10px;
+        right: 20px;
+    }
+    .modal-links {
+        flex-direction: column; /* Stack buttons in modals on small screens */
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-header {
+        padding: 8px 15px;
+    }
+    .logo a {
+        font-size: 1.1em;
+    }
+    .nav-links {
+        gap: 8px;
+    }
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    .hero-text {
+        font-size: 0.9em;
+    }
+    .donut-count-display {
+        font-size: 2.5rem;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .project-item-title {
+        font-size: 1.4rem;
+    }
+    .modal-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Essential for game logic - Keep this at the very end for proper override */
+.button--disabled {
+    background-color: #cccccc !important; /* Grey background for disabled */
+    color: #666666 !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+    transform: none !important; /* Override hover/active transforms */
+    box-shadow: none !important; /* Remove shadow when disabled */
+}
+
+.button--disabled:hover {
+    background-color: #cccccc !important;
+    transform: none !important;
+}
