@@ -123,85 +123,84 @@ a:hover {
 /* Styling for the main Donut Clicker section (adapted from .hero) */
 .hero {
     background-color: var(--background-medium);
-    /* Change this line for equal padding on all sides */
-    padding: 40px; /* This sets top, right, bottom, and left padding all to 40px */
-    /* You could also use a slightly smaller value like 30px if 40px is too much: padding: 30px; */
-
+    padding: 40px;
     text-align: center;
     color: var(--text-color);
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row; /* Keeps images side-by-side on larger screens */
+    align-items: center; /* Vertically centers images */
+    justify-content: center; /* Horizontally centers the pair of images */
     border-radius: 12px;
     box-shadow: 0 5px 15px var(--shadow-light);
-    gap: 20px; /* Keep this gap or adjust as needed for spacing between the donut images and text */
-    flex-wrap: wrap;
+    gap: 40px; /* Space between the two donut images */
+    flex-wrap: wrap; /* Allows images to wrap onto a new line on smaller screens */
 }
-.hero-content { /* Style for the central content within .hero */
+
+/* These specific rules were for the hero-content div which you've moved.
+   They are commented out as they no longer apply to direct children of .hero */
+/* .hero-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    flex-grow: 1; /* Allows it to take up available space */
-    max-width: 600px; /* Limit width of central content */
-}
+    flex-grow: 1;
+    max-width: 600px;
+} */
 
-.hero-title { 
-    font-size: 2.5rem; 
+.hero-title {
+    font-size: 2.5rem;
     margin-bottom: 15px;
     color: var(--secondary-color);
     text-shadow: 1px 1px 2px var(--shadow-light);
 }
 
-.hero-text { 
-    font-size: 1.15rem; 
-    max-width: 700px; 
+.hero-text {
+    font-size: 1.15rem;
+    max-width: 700px;
     margin: 0 auto 30px auto;
     color: var(--text-color);
 }
 
-.hero-donut-img { /* Existing main donut image */
-    width: 250px; 
-    height: 250px; 
+.hero-donut-img { /* Your main Homer donut image */
+    width: 250px;
+    height: 250px;
     object-fit: cover;
-    margin: 20px auto; 
-    display: block; 
-    border-radius: 50%; 
+    /* margin: 20px auto; -- This was removed as flex gap handles spacing better for direct children */
+    display: block;
+    border-radius: 50%;
     box-shadow: 0 5px 15px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevents shrinking from its defined size as much as possible */
+    flex-grow: 0; /* Prevents it from growing to fill space */
 }
 
 .hero-donut-img:hover {
-    transform: scale(1.05) rotate(5deg); 
+    transform: scale(1.05) rotate(5deg);
     box-shadow: 0 8px 20px var(--shadow-medium);
 }
 
-/* Styles for the two side donut images */
-.hero-side-donut-img {
-    width: 120px;
-    height: 120px;
-    object-fit: contain; /* Keeps the entire donut visible within the circle */
-    border-radius: 50%; /* Makes the square image a circle */
+/* This is the class for your LEFT donut image */
+.my-circular-image {
+    width: 120%; /* As you specified, you can adjust this */
+    height: 120px; /* Must be same as width for a perfect circle */
+    border-radius: 50%;
+    object-fit: flex; /* Important to ensure the image fills the circular space */
     display: block;
-    box-shadow: 0 5px 15px var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0;
+    box-shadow: 0 5px 15px var(--shadow-light); /* Added consistent shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added consistent transition */
+    flex-shrink: 10; /* Prevents shrinking from its defined size as much as possible */
+    flex-grow: 0; /* Prevents it from growing to fill space */
 }
-
-.hero-side-donut-img:hover {
-    transform: scale(1.1) rotate(-8deg); 
+.my-circular-image:hover { /* Add hover effect for consistency */
+    transform: scale(1.1) rotate(-8deg); /* Example hover effect, adjust as desired */
     box-shadow: 0 5px 15px var(--shadow-medium);
 }
-.my-circular-image {
-    width: 150px; /* Or whatever size you need */
-    height: 150px; /* Must be same as width */
-    border-radius: 50%;
-    object-fit: cover; /* Important to prevent distortion if image aspect ratio isn't square */
-}
+
+
+
 .donut-count-display { /* Custom class for the donut count */
-    font-size: 3.5rem; 
+    font-size: 3.5rem;
     font-weight: 700;
     color: var(--primary-color);
     margin-bottom: 30px;
@@ -213,10 +212,10 @@ a:hover {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 5px 15px var(--shadow-light);
-    text-align: center; 
+    text-align: center;
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -225,18 +224,18 @@ a:hover {
     box-shadow: 0 8px 20px var(--shadow-medium);
 }
 
-.project-item-title { 
+.project-item-title {
     font-size: 1.8rem;
     margin-bottom: 15px;
     color: var(--primary-color);
 }
 
-.project-item-text { 
+.project-item-text {
     font-size: 1em;
     margin-bottom: 20px;
 }
 
-.auto-clicker-info { 
+.auto-clicker-info {
     font-size: 1.1em;
     margin-bottom: 10px;
 }
@@ -277,7 +276,7 @@ a:hover {
     box-shadow: 0 4px 10px var(--shadow-light);
 }
 
-.btn-small { 
+.btn-small {
     padding: 8px 18px;
     font-size: 0.9rem;
     border-radius: 20px;
@@ -286,35 +285,35 @@ a:hover {
 /* --- Modals --- */
 .modal {
     display: none; /* Correct: Hidden by default */
-    position: fixed; 
+    position: fixed;
     z-index: 9999; /* Critical: ENSURE this is the highest z-index on the page */
     left: 0;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
+    width: 100%;
+    height: 100%;
+    overflow: auto;
     background-color: rgba(0, 0, 0, 0.5); /* Adjusted: Less opaque black overlay */
     align-items: center;
     justify-content: center;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-.modal.is-visible { 
+.modal.is-visible {
     opacity: 1;
-    display: flex; 
+    display: flex;
 }
 
 .modal-content {
-    background-color: var(--light-text-color); 
-    padding: 40px; 
-    border-radius: 12px; 
-    box-shadow: 0 8px 25px var(--shadow-medium); 
-    position: relative; 
-    width: 90%; 
-    max-width: 550px; 
-    animation: animatetop 0.4s; 
-    text-align: center; 
+    background-color: var(--light-text-color);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-medium);
+    position: relative;
+    width: 90%;
+    max-width: 550px;
+    animation: animatetop 0.4s;
+    text-align: center;
     background-color: #FFFFFF; /* Explicitly set to white for clarity */
     color: var(--text-color); /* Ensure text within modal is readable */
 }
@@ -355,7 +354,7 @@ a:hover {
     font-size: 1.1em;
     line-height: 1.7;
     margin-bottom: 15px;
-    text-align: left; 
+    text-align: left;
 }
 
 .modal-links {
@@ -380,7 +379,7 @@ a:hover {
 /* --- Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     body {
-        padding-top: 65px; 
+        padding-top: 65px;
     }
     .site-header {
         flex-direction: column;
@@ -417,11 +416,11 @@ a:hover {
     .hero {
         flex-direction: column; /* Stack items vertically on smaller screens */
         padding: 40px 15px;
-        gap: 15px; /* Reduce gap */
+        gap: 15px; /* Reduce gap when stacked */
     }
-    .hero-content {
-        flex-grow: unset; /* Remove flex-grow on small screens */
-    }
+    /* Removed hero-content specific responsive rules as the div is no longer there */
+
+    /* Keep or adjust if these titles/texts are still relevant in a new location */
     .hero-title {
         font-size: 2rem;
     }
@@ -431,15 +430,18 @@ a:hover {
     .donut-count-display {
         font-size: 3rem;
     }
+
+    /* Adjust image sizes for smaller screens */
     .hero-donut-img {
-        width: 120px; /* Adjust main donut size */
-        height: 120px;
+        width: 150px;
+        height: 150px;
     }
-    .hero-side-donut-img {
-        width: 80px; /* Adjust side donut size */
-        height: 80px;
+    .my-circular-image {
+        width: 100px;
+        height: 100px;
     }
 
+    /* hero-side-donut-img rule is removed as it's no longer used */
 
     .btn {
         padding: 12px 25px;
@@ -486,6 +488,15 @@ a:hover {
     }
     .nav-links {
         gap: 8px;
+    }
+    /* Adjust sizes for very small screens if necessary */
+    .hero-donut-img {
+        width: 120px;
+        height: 120px;
+    }
+    .my-circular-image {
+        width: 80px;
+        height: 80px;
     }
     .hero-title {
         font-size: 1.8rem;

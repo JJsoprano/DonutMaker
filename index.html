@@ -4,64 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fred the Baker's Donut Maker Clicker</title>
-    <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Link your custom style.css file -->
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <header class="site-header">
         <div class="logo">
-            <!-- You can add a logo image here if you have one, e.g., <img src="images/donut-logo.png" alt="Donut Logo" class="logo-img"> -->
-            <a href="index.html">Fred's Donuts</a> <!-- Link back to the game's home -->
+            <a href="index.html">Fred's Donuts</a>
         </div>
         <nav role="navigation" aria-label="Main Navigation">
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home (Game)</a></li>
                 <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener">Inspiration</a></li>
                 <li><a href="portfolio.html">Developer Info</a></li>
+                <li><a href="freds-bakery.html">Fred's Bakery</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="container"> <!-- This acts as your main content wrapper, defined in CSS -->
-        <main class="game-area"> <!-- Added game-area for potential future flex layout within container -->
-            <!-- Donut Clicker Section - Adapting 'hero' style from CSS for a main section -->
+    <div class="container">
+        <main class="game-area">
             <section class="hero">
-                <!-- Left Donut Image -->
-                <img src="images/tenordonut.gif" alt="My Square Image" class="my-circular-image">
-                <div class="hero-content"> <!-- NEW: Wrapper for existing content -->
-                    <h1 class="hero-title">Time to Make the Donuts!</h1>
-                    <p class="hero-text">Click the button below to start your donut empire. The more you click, the more you earn!</p>
-                    <!-- CRITICAL: Ensure this path is correct and the file name matches exactly -->
-                    <img src="images/tenor.gif" alt="Homer Simpson eating a donut" class="hero-donut-img">
-                    <p class="donut-count-display">Donuts: <span id="donutCountDisplay">0</span></p>
-                    <button id="makeDonutButton" class="btn">Make Donut</button>
-                </div>
+                <img src="images/tenordonut.gif" alt="A smaller glazed donut on the left" class="my-circular-image">
 
-                <!-- Right Donut Image -->
-                <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=Choco+Donut" alt="A smaller chocolate donut on the right" class="hero-side-donut-img hero-side-donut-right">
-            </section>
-            <section class="project-item" style="margin-top: 30px;"> <h2 class="project-item-title">The Inspiration: Fred the Baker</h2>
-                <p class="project-item-text">
-                    Our "Fred the Baker's Donut Maker Clicker" game is a nostalgic tribute to the iconic advertising character,
-                    Fred the Baker, from **Dunkin' Donuts**. Portrayed by the late actor **Michael Vale**, Fred was famous
-                    for his perpetually sleepy, yet dedicated, demeanor and his classic catchphrase:
-                    <strong>"Time to make the donuts!"</strong>
-                </p>
-                <p class="project-item-text">
-                    For 15 years (from 1982 to 1997), Fred symbolized Dunkin' Donuts' commitment to baking fresh donuts
-                    every morning, long before dawn. His tireless dedication resonated with millions and made him a beloved
-                    cultural icon. This game aims to capture a bit of that simple, hardworking charm as you build your
-                    own donut empire!
-                </p>
+                <img src="images/tenor.gif" alt="Homer Simpson eating a donut" class="hero-donut-img">
+
+                </section>
+
+            <section class="project-item">
+                <h1 class="project-item-title">Time to Make the Donuts!</h1>
+                <p class="project-item-text">Click the button below to start your donut empire. The more you click, the more you earn!</p>
+                <p class="donut-count-display">Donuts: <span id="donutCountDisplay">0</span></p>
+                <button id="makeDonutButton" class="btn">Make Donut</button>
             </section>
 
-            <!-- Auto Clicker Section - Adapting 'project-item' style from CSS for sections -->
             <section class="project-item">
                 <h2 class="project-item-title">Auto Clickers</h2>
                 <p class="project-item-text">Automate your donut production! Each auto clicker generates donuts for you over time.</p>
@@ -69,8 +49,7 @@
                 <p class="auto-clicker-info">Cost of next: <span id="autoClickerCostDisplay">100</span> Donuts</p>
                 <button id="buyAutoClickerButton" class="btn btn-secondary button--disabled">Purchase Auto Clicker</button>
             </section>
-            
-            <!-- Game Controls Section - Also adapting 'project-item' style -->
+
             <section class="project-item">
                 <h2 class="project-item-title">Game Controls</h2>
                 <p class="project-item-text">Need a fresh start? Reset your game progress here.</p>
@@ -79,7 +58,6 @@
         </main>
     </div>
 
-    <!-- The Developer Info Modal HTML is kept here in case you want to re-purpose it later. It will not be triggered by the "Developer Info" link anymore. -->
     <div id="developerInfoModal" class="modal">
         <div class="modal-content">
             <span class="close-button" id="closeDeveloperInfoModal">&times;</span>
@@ -92,11 +70,11 @@
             </div>
         </div>
     </div>
+
     <footer class="site-footer">
         <p>&copy; 2025 Fred the Baker Baking Company. All rights reserved.</p>
     </footer>
 
-    <!-- Link your JavaScript files at the end of the body for better performance -->
     <script src="js/donut.js"></script>
     <script src="js/app.js"></script>
 </body>
