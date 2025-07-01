@@ -136,18 +136,6 @@ a:hover {
     flex-wrap: wrap; /* Allows images to wrap onto a new line on smaller screens */
 }
 
-/* These specific rules were for the hero-content div which you've moved.
-   They are commented out as they no longer apply to direct children of .hero */
-/* .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    flex-grow: 1;
-    max-width: 600px;
-} */
-
 .hero-title {
     font-size: 2.5rem;
     margin-bottom: 15px;
@@ -163,16 +151,15 @@ a:hover {
 }
 
 .hero-donut-img { /* Your main Homer donut image */
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    /* margin: 20px auto; -- This was removed as flex gap handles spacing better for direct children */
+    width: 350px;
+    height: 350px;
+    object-fit: contain;
     display: block;
     border-radius: 50%;
     box-shadow: 0 5px 15px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0; /* Prevents shrinking from its defined size as much as possible */
-    flex-grow: 0; /* Prevents it from growing to fill space */
+    flex-shrink: 0; 
+    flex-grow: 0; 
 }
 
 .hero-donut-img:hover {
@@ -180,19 +167,19 @@ a:hover {
     box-shadow: 0 8px 20px var(--shadow-medium);
 }
 
-/* This is the class for your LEFT donut image */
+/*  LEFT donut image */
 .my-circular-image {
-    width: 120%; /* As you specified, you can adjust this */
-    height: 120px; /* Must be same as width for a perfect circle */
+    width: 120%; 
+    height: 120px; 
     border-radius: 50%;
-    object-fit: flex; /* Important to ensure the image fills the circular space */
+    object-fit: flex; 
     display: block;
-    box-shadow: 0 5px 15px var(--shadow-light); /* Added consistent shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added consistent transition */
-    flex-shrink: 10; /* Prevents shrinking from its defined size as much as possible */
-    flex-grow: 0; /* Prevents it from growing to fill space */
+    box-shadow: 0 5px 15px var(--shadow-light); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    flex-shrink: 10; 
+    flex-grow: 0; 
 }
-.my-circular-image:hover { /* Add hover effect for consistency */
+.my-circular-image:hover { /* hover effect for consistency */
     transform: scale(1.1) rotate(-8deg); /* Example hover effect, adjust as desired */
     box-shadow: 0 5px 15px var(--shadow-medium);
 }
@@ -416,9 +403,8 @@ a:hover {
     .hero {
         flex-direction: column; /* Stack items vertically on smaller screens */
         padding: 40px 15px;
-        gap: 15px; /* Reduce gap when stacked */
+        gap: 40px; 
     }
-    /* Removed hero-content specific responsive rules as the div is no longer there */
 
     /* Keep or adjust if these titles/texts are still relevant in a new location */
     .hero-title {
