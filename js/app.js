@@ -1,33 +1,32 @@
 const game = new DonutMaker();
 
-
-function openModel(modelElement){
-  if(modelElement){
-    modelElement.classList.add('is-visible');
+function openModel(modelElement) {
+  if (modelElement) {
+    modelElement.classList.add("is-visible");
   }
 }
-function closeModel(closeElement){
-  if(modelElement){
+function closeModel(closeElement) {
+  if (modelElement) {
     modelElement.closeList.remove("is-visible");
   }
   // These listeners will make the Developer Info modal functional again.
-if (developerInfoBtn && developerInfoModal && closeDeveloperInfoModalBtn) {
-    developerInfoBtn.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default link behavior
-        openModal(developerInfoModal);
+  if (developerInfoBtn && developerInfoModal && closeDeveloperInfoModalBtn) {
+    developerInfoBtn.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+      openModal(developerInfoModal);
     });
 
-    closeDeveloperInfoModalBtn.addEventListener('click', () => {
-        closeModal(developerInfoModal);
+    closeDeveloperInfoModalBtn.addEventListener("click", () => {
+      closeModal(developerInfoModal);
     });
 
     // Close modal if clicking outside
-    developerInfoModal.addEventListener('click', (event) => {
-        if (event.target === developerInfoModal) {
-            closeModal(developerInfoModal);
-        }
+    developerInfoModal.addEventListener("click", (event) => {
+      if (event.target === developerInfoModal) {
+        closeModal(developerInfoModal);
+      }
     });
-}
+  }
 }
 // Game Button Handling Logic ---
 const makeDonutButton = document.getElementById("makeDonutButton");
@@ -94,7 +93,7 @@ if (resetGameButton) {
     startAutoClickerInterval(); // Restart a new interval
   });
 }
-//  Game Loop (Auto Clickers) 
+//  Game Loop (Auto Clickers)
 let autoClickerInterval; // Declare it here so it can be cleared/restarted
 function startAutoClickerInterval() {
   if (autoClickerInterval) {
