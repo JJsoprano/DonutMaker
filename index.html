@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fred the Baker's Donut Maker Clicker</title>
+    <!-- Google Fonts - Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,19 +13,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <header class="site-header">
         <div class="logo">
             <!-- You can add a logo image here if you have one, e.g., <img src="images/donut-logo.png" alt="Donut Logo" class="logo-img"> -->
             <a href="index.html">Fred's Donuts</a> <!-- Link back to the game's home -->
         </div>
-        <nav>
+        <nav role="navigation" aria-label="Main Navigation">
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home (Game)</a></li>
-                <!-- This is the link that should say "Contact Me" and point to your contact.html -->
-                <li><a href="contact.html">Contact Me</a></li> 
-                <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank">Inspiration</a></li>
-                <!-- Re-added Developer Info link, pointing to the modal -->
-                <li><a href="portfolio.html">Developer Info</a></li> 
+                <li><a href="https://orteil.dashnet.org/cookieclicker/" target="_blank" rel="noopener">Inspiration</a></li>
+                <li><a href="portfolio.html">Developer Info</a></li>
             </ul>
         </nav>
     </header>
@@ -33,22 +32,33 @@
         <main class="game-area"> <!-- Added game-area for potential future flex layout within container -->
             <!-- Donut Clicker Section - Adapting 'hero' style from CSS for a main section -->
             <section class="hero">
-                <!-- NEW: Left Donut Image -->
-                <img src="https://placehold.co/120x120/FFD700/8B4513?text=Donut" alt="A smaller donut on the left" class="hero-side-donut-img hero-side-donut-left">
-                
+                <!-- Left Donut Image -->
+                <img src="images/tenordonut.gif" alt="My Square Image" class="my-circular-image">
                 <div class="hero-content"> <!-- NEW: Wrapper for existing content -->
                     <h1 class="hero-title">Time to Make the Donuts!</h1>
                     <p class="hero-text">Click the button below to start your donut empire. The more you click, the more you earn!</p>
-                    
-                    <!-- Existing Main Donut Image -->
-                    <img src="https://placehold.co/200x200/F5DEB3/8B4513?text=Donut" alt="A delicious looking donut" class="hero-donut-img">
-                    
+                    <!-- CRITICAL: Ensure this path is correct and the file name matches exactly -->
+                    <img src="images/tenor.gif" alt="Homer Simpson eating a donut" class="hero-donut-img">
                     <p class="donut-count-display">Donuts: <span id="donutCountDisplay">0</span></p>
                     <button id="makeDonutButton" class="btn">Make Donut</button>
                 </div>
 
-                <!-- NEW: Right Donut Image -->
-                <img src="https://placehold.co/120x120/CD853F/FFFFFF?text=Donut" alt="A smaller donut on the right" class="hero-side-donut-img hero-side-donut-right">
+                <!-- Right Donut Image -->
+                <img src="https://placehold.co/120x120/8B4513/FFFFFF?text=Choco+Donut" alt="A smaller chocolate donut on the right" class="hero-side-donut-img hero-side-donut-right">
+            </section>
+            <section class="project-item" style="margin-top: 30px;"> <h2 class="project-item-title">The Inspiration: Fred the Baker</h2>
+                <p class="project-item-text">
+                    Our "Fred the Baker's Donut Maker Clicker" game is a nostalgic tribute to the iconic advertising character,
+                    Fred the Baker, from **Dunkin' Donuts**. Portrayed by the late actor **Michael Vale**, Fred was famous
+                    for his perpetually sleepy, yet dedicated, demeanor and his classic catchphrase:
+                    <strong>"Time to make the donuts!"</strong>
+                </p>
+                <p class="project-item-text">
+                    For 15 years (from 1982 to 1997), Fred symbolized Dunkin' Donuts' commitment to baking fresh donuts
+                    every morning, long before dawn. His tireless dedication resonated with millions and made him a beloved
+                    cultural icon. This game aims to capture a bit of that simple, hardworking charm as you build your
+                    own donut empire!
+                </p>
             </section>
 
             <!-- Auto Clicker Section - Adapting 'project-item' style from CSS for sections -->
@@ -68,19 +78,8 @@
             </section>
         </main>
     </div>
-<section class="about-us container">
-        <h2 class="about-us-title">About Fred's Bakery</h2>
-        <p class="about-us-text">
-            Fred's Bakery has been serving the freshest, most delicious donuts since 1980. 
-            Our secret recipe, passed down through generations, ensures every bite is a taste of pure joy. 
-            We believe in quality ingredients, traditional baking methods, and a passion for making people smile. 
-            Join us on our journey to make the world a sweeter place, one donut at a time!
-        </p>
-        <p class="about-us-text">
-            This Donut Clicker game is a fun tribute to our dedication, letting you experience 
-            the excitement of building your own donut empire from scratch. Happy clicking!
-        </p>
-    <!-- Re-added: Developer Info Modal -->
+
+    <!-- The Developer Info Modal HTML is kept here in case you want to re-purpose it later. It will not be triggered by the "Developer Info" link anymore. -->
     <div id="developerInfoModal" class="modal">
         <div class="modal-content">
             <span class="close-button" id="closeDeveloperInfoModal">&times;</span>
@@ -93,8 +92,6 @@
             </div>
         </div>
     </div>
-
-
     <footer class="site-footer">
         <p>&copy; 2025 Fred the Baker Baking Company. All rights reserved.</p>
     </footer>

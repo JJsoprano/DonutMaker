@@ -123,19 +123,21 @@ a:hover {
 /* Styling for the main Donut Clicker section (adapted from .hero) */
 .hero {
     background-color: var(--background-medium);
-    padding: 40px 20px; /* Adjusted padding for a more compact hero section */
+    /* Change this line for equal padding on all sides */
+    padding: 40px; /* This sets top, right, bottom, and left padding all to 40px */
+    /* You could also use a slightly smaller value like 30px if 40px is too much: padding: 30px; */
+
     text-align: center;
     color: var(--text-color);
-    display: flex; /* Make hero a flex container */
-    flex-direction: row; /* Arrange items in a row by default */
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center; /* Horizontally center content */
-    border-radius: 12px; /* Consistent rounded corners */
-    box-shadow: 0 5px 15px var(--shadow-light); /* Subtle shadow */
-    gap: 20px; /* Gap between main content and side images */
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    justify-content: center;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    gap: 20px; /* Keep this gap or adjust as needed for spacing between the donut images and text */
+    flex-wrap: wrap;
 }
-
 .hero-content { /* Style for the central content within .hero */
     display: flex;
     flex-direction: column;
@@ -161,9 +163,9 @@ a:hover {
 }
 
 .hero-donut-img { /* Existing main donut image */
-    width: 150px; 
-    height: 150px; 
-    object-fit: contain;
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover;
     margin: 20px auto; 
     display: block; 
     border-radius: 50%; 
@@ -178,20 +180,26 @@ a:hover {
 
 /* Styles for the two side donut images */
 .hero-side-donut-img {
-    width: 100px; 
-    height: 100px;
-    object-fit: contain;
-    border-radius: 50%;
-    box-shadow: 0 3px 10px var(--shadow-light);
+    width: 120px;
+    height: 120px;
+    object-fit: contain; /* Keeps the entire donut visible within the circle */
+    border-radius: 50%; /* Makes the square image a circle */
+    display: block;
+    box-shadow: 0 5px 15px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0; 
+    flex-shrink: 0;
 }
 
 .hero-side-donut-img:hover {
     transform: scale(1.1) rotate(-8deg); 
     box-shadow: 0 5px 15px var(--shadow-medium);
 }
-
+.my-circular-image {
+    width: 150px; /* Or whatever size you need */
+    height: 150px; /* Must be same as width */
+    border-radius: 50%;
+    object-fit: cover; /* Important to prevent distortion if image aspect ratio isn't square */
+}
 .donut-count-display { /* Custom class for the donut count */
     font-size: 3.5rem; 
     font-weight: 700;
