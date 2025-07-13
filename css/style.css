@@ -366,7 +366,7 @@ a:hover {
 /* --- Responsive Design (Media Queries) --- */
 @media (max-width: 768px) {
     body {
-        padding-top: 65px;
+        padding-top: 200px;
     }
     .site-header {
         flex-direction: column;
@@ -467,7 +467,7 @@ a:hover {
 
 @media (max-width: 480px) {
     .site-header {
-        padding: 8px 15px;
+        padding: 220px;
     }
     .logo a {
         font-size: 1.1em;
