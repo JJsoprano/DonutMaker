@@ -1,10 +1,22 @@
 const game = new DonutMaker();
 
+/**
+ * Opens a modal by adding the "is-visible" class to the given modal element.
+ *
+ * @param {HTMLElement} modelElement - The DOM element representing the modal to be opened.
+ */
+
 function openModel(modelElement) {
   if (modelElement) {
     modelElement.classList.add("is-visible");
   }
 }
+/**
+ * Closes a modal by removing the "is-visible" class from the given modal element.
+ * Restores the Developer Info modal functionality after closing the modal.
+ *
+ * @param {HTMLElement} closeElement - The DOM element representing the modal to be closed.
+ */
 function closeModel(closeElement) {
   if (modelElement) {
     modelElement.closeList.remove("is-visible");
